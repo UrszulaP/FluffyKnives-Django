@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shop.urls')),
-] # wszystkie url z shop/ będą dalej szukane w shop.urls
+] # wszystkie url z '' będą dalej szukane w shop.urls
+# lepiej kończyć tutaj ścieżki /, wtedy django automatycznie nie doda / do ścieżek, które już mają /

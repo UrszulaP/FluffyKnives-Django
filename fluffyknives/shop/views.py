@@ -1,9 +1,33 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-def home(request):
-  return HttpResponse('<h1>Shop Home</h1>')
+itemsList = [
+	{
+		'itemImage': 'noz1.jpg',
+		'itemName': 'Nóż 1',
+		'itemMainDescription': 'Klasyka i elegancja, wszechstronność zastosowania, wykute w jednym nożu.',
+		'itemPointsDescription': 'Klasyka i elegancja, wszechstronność zastosowania, wykute w jednym nożu.',
+		'itemPrice': '299'
+	},
+	{
+		'itemImage': 'noz1.jpg',
+		'itemName': 'Nóż 1',
+		'itemMainDescription': 'Klasyka i elegancja, wszechstronność zastosowania, wykute w jednym nożu.',
+		'itemPointsDescription': 'Klasyka i elegancja, wszechstronność zastosowania, wykute w jednym nożu.',
+		'itemPrice': "299"
+	},
+	{
+		'itemImage': 'noz1.jpg',
+		'itemName': 'Nóż 1',
+		'itemMainDescription': 'Klasyka i elegancja, wszechstronność zastosowania, wykute w jednym nożu.',
+		'itemPointsDescription': 'Klasyka i elegancja, wszechstronność zastosowania, wykute w jednym nożu.',
+		'itemPrice': "299"
+	}
+]
 
 
-def about(request):
-  return HttpResponse('<h1>Shop About</h1>')
+def main(request):
+	context = {
+		'itemsList': itemsList
+	} #sposób wymagany przez Django, nie można bezpośrednio wczytać zmiennej
+	# "Kontekst jest słownikiem mapującym nazwy zmiennych szablonu do obiektów Pythona."
+	return render(request, 'shop/main.html', context)

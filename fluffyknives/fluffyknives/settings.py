@@ -31,13 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'shop.apps.ShopConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+] # 'blog.apps.ShopConfig' ShopConfig - nazwa klasy z shop/apps.py
+# trzeba tu dodawać każdą aplikację z projektu, aby można było używać templatek i bd
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
