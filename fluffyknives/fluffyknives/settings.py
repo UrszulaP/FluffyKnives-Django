@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'shop.apps.ShopConfig',
+    'users.apps.UsersConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ] # 'blog.apps.ShopConfig' ShopConfig - nazwa klasy z shop/apps.py
 # trzeba tu dodawać każdą aplikację z projektu, aby można było używać templatek i bd
+# crispy_forms - CSS framework installed by pip, configuration at the bottom
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,3 +123,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# crispy CSS framework configuration
+CRISPY_TEMPLATE_PACK = 'bootstrap4' # default: bootstrap2
