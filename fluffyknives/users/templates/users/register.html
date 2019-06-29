@@ -16,7 +16,7 @@
 				<form method="POST">
 					{% csrf_token %} <!-- required to make form work, for safety -->
 					<fieldset class="form-group">
-						{{ form|crispy }} <!-- .as_p loads form in <p> tags; crispy framework does it for us -->
+						{{ form|crispy }} <!-- .as_p loads form in <p> tags; crispy CSS framework does it for us -->
 					</fieldset>
 
 					<div class="form-group">

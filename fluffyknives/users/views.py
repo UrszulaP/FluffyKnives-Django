@@ -9,6 +9,6 @@ def register(request):
 			return render(request, 'users/register_ok.html')
 	else:
 		form = UserRegisterForm()
-	# context must be given as library type
+	# if form is not valid - form renders again with previous data (form=form from 'if POST' block)
 	return render(request, 'users/register.html', {'form': form})
 	

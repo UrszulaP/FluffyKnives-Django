@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ] # 'blog.apps.ShopConfig' ShopConfig - nazwa klasy z shop/apps.py
 # trzeba tu dodawać każdą aplikację z projektu, aby można było używać templatek i bd
-# crispy_forms - CSS framework installed by pip, configuration at the bottom
+# crispy_forms - CSS framework (for forms) installed by pip, configuration at the bottom
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
