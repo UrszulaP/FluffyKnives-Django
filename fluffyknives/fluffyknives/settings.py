@@ -127,4 +127,8 @@ STATIC_URL = '/static/'
 # crispy CSS framework configuration
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # default: bootstrap2
 
+# determines where to redirect user after logging in (here - shop-main url pattern)
 LOGIN_REDIRECT_URL = 'shop-main'
+
+# determines where an unlogged user is redirected (with 'next=...' parameter in url)
+LOGIN_URL = 'login'
