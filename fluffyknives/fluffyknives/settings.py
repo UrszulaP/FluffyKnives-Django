@@ -126,3 +126,5 @@ STATIC_URL = '/static/'
 
 # crispy CSS framework configuration
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # default: bootstrap2
+
+LOGIN_REDIRECT_URL = 'shop-main'

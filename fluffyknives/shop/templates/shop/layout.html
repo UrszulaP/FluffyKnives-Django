@@ -50,15 +50,31 @@
 				</li>
 			</ul>
 
+			<!-- Different navbar content for admin, logged user and unlogged user -->
+			{% if user.is_authenticated %}
+					<ul class="navbar-nav ml-auto">
+					<span class="navbar-text mr-3">Witaj {{ user.username }}! :)</span>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Moje konto</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Zamówienia</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'logout' %}">Wyloguj</a>
+					</li>
+				</ul>
+
+			{% else %}
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="{% url 'register' %}">Załóż konto</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Zaloguj</a>
+						<a class="nav-link" href="{% url 'login' %}">Zaloguj</a>
 					</li>
 				</ul>
-
+			{% endif %}
 
 		</div>
 	</div>
