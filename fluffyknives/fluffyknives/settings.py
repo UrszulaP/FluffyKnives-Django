@@ -121,8 +121,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
 STATIC_URL = '/static/'
+
+# default path to directory where are stored uploaded files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# public URL of this directory
+MEDIA_URL = '/media/'
 
 # crispy CSS framework configuration
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # default: bootstrap2
