@@ -1,0 +1,38 @@
+{% extends "shop/layout.html" %}
+{% load static %} <!-- loads static files -->
+{% load crispy_forms_tags %} <!-- loads crispy framework configured in settings -->
+
+{% block navbarposition %}
+	<nav class="navbar navbar-expand-md navbar-dark Bggrey" id="navbarMain">
+{% endblock %}
+
+{% block content %}
+
+	<div class="container">
+		<div class="row">
+
+			<!-- ---------------------------- ACCOUNT INFO & PICTURE ---------------------------- -->
+
+			<div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-xs-12 mt-3">   
+				<div class="media mt-3">
+					<img src="{{ user.profile.image.url }}" class="rounded-circle img-fluid Img125 img-responsive"> <!-- needed to change urlpatterns -->
+					<div class="media-body ml-4">
+						<h3>{{ user.username }}</h3>
+						<p class="text-secondary">{{ user.email }}</p>
+						{% if user.profile.adress %}
+							<p class="text-secondary">{{ user.profile.adress }}</p>
+						{% else %}
+							<p class="text-secondary">Brak adresu dostawy</p>
+						{% endif %}
+						{% if user.profile.phone %}
+							<p class="text-secondary">{{ user.profile.phone }}</p>
+						{% else %}
+							<p class="text-secondary">Brak numeru telefonu</p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+	</div>
+
+{% endblock content %}
