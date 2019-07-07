@@ -15,7 +15,7 @@
 
 			<div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-xs-12 mt-3">   
 				<div class="media mt-3">
-					<img src="{{ user.profile.image.url }}" class="rounded-circle img-fluid Img125 img-responsive"> <!-- needed to change urlpatterns -->
+					<img src="{{ user.profile.image.url }}" class="rounded-circle img-fluid Img125 img-responsive"> <!-- need to change urlpatterns -->
 					<div class="media-body ml-4">
 						<h3>{{ user.username }}</h3>
 						<p class="text-secondary">{{ user.email }}</p>
@@ -33,6 +33,30 @@
 				</div>
 			</div>
 
+			<!-- ---------------------------- UPDATE ACCOUNT FORM ---------------------------- -->
+
+			<div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 col-xs-12 mt-3">
+				<div class="row">
+					<div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-xs-12 mt-3">
+						<h4 class="text-center mb-5">Zaktualizuj swoje dane</h4>
+
+						<form method="POST" enctype="multipart/form-data"> <!-- enctype - needs to be defined to make files upload possible -->
+							{% csrf_token %}
+							<fieldset class="form-group">
+								{{ userForm|crispy }} <!-- .as_p loads form in <p> tags; crispy CSS framework does it for us -->
+								{{ profileForm|crispy }}
+							</fieldset>
+
+							<div class="form-group">
+								<button class="btn btn-outline-light btn-block mt-4" type="submit">Zaktualizuj</button>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
 	</div>
 
 {% endblock content %}

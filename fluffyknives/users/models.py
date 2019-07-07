@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User # built-in User model
+from PIL import Image
 
 # Profile model created to provide picture for user (User model doesn`t contain it)
 class Profile(models.Model):
@@ -9,3 +10,12 @@ class Profile(models.Model):
 
 	def __str__(self):
 		return f'{self.user.username} Profile'
+
+	# resizing picture; overwriting built-in method that gets run after an instance of model is saved (also uploaded)
+	def save(self):
+		super().save()
+		img = Image.open(self.image.path) # opens image of current instance
+		if img.height > 125 or img.width > 125:
+			outputSize = (125, 125)
+			img.thumbnail(outputSize)
+			img.save(self.image.path)
