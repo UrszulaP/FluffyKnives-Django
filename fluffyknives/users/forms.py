@@ -39,7 +39,9 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
 	class Meta:
 		model = Profile
-		fields = ['image']
+		fields = ['image', 'adress', 'phone']
 		labels = {
 						'image': ('Zaktualizuj zdjęcie profilowe'),
+						'adress': ('Adres'),
+						'phone': ('Numer telefonu'),
 				}
