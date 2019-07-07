@@ -32,7 +32,7 @@ urlpatterns = [
 	path('logout/', auth_views.LogoutView.as_view(template_name='shop/main.html'), name='logout'),
 	path('', include('shop.urls')),
 ] # all urls '' will be searched in shop.urls
-# lepiej kończyć tutaj ścieżki /, wtedy django automatycznie nie doda / do ścieżek, które już mają /
+# better to end path by / here, then django will not add / automately to pahts that already has /
 # template_name='...' - LoginView opens registration/login.html template by default
 
 

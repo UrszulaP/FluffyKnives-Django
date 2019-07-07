@@ -75,11 +75,9 @@
 				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
 					<div class="card border-dark text-dark mb-3 mt-3">
 
-						{% with 'shop/images/shop/'|add:i.itemImage as image_static %}<!-- bo do static można dać tylko stringa -->
 						<img class="card-img-top img-fluid" 
-						src="{% static image_static %}"
+						src="{{ i.itemImage.url }}"
 						alt="Card image cap">
-						{% endwith %}
 
 						<div class="card-body">
 							<h5 class="card-title text-center">{{ i.itemName }}</h5>
