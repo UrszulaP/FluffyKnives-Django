@@ -21,6 +21,9 @@ def register(request):
 
 @login_required
 def profile(request):
+	if request.user.is_superuser:
+		return redirect('shop-main')
+
 	if request.method == 'POST':
 		userForm = UserUpdateForm(request.POST, instance=request.user) # request.POST - gets posted data, instance set to specify which user to update
 		profileForm = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
