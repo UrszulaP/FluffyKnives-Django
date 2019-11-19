@@ -3,16 +3,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
 
-# extended UserCreationForm
-class UserRegisterForm(UserCreationForm): # inherits from built-in Django form
-    email = forms.EmailField() # required=true as default; additional form field
-
-    # form configuration
     class Meta: 
-        # indication of the model that will be affected i.e. by .save()
-        model = User # built-in Django model
-        # specifies fields in the order that will be shown in the form
+        model = User
         fields = ['username', 'email', 'password1', 'password2']
         labels = {
                         'username': ('Nazwa użytkownika'),
@@ -27,7 +22,7 @@ class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
 
     class Meta: 
-        model = User # built-in Django model
+        model = User
         fields = ['username', 'email']
         labels = {
                 'username': ('Nazwa użytkownika'),
@@ -41,7 +36,7 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['image', 'adress', 'phone']
         labels = {
-                        'image': ('Zaktualizuj zdjęcie profilowe'),
-                        'adress': ('Adres'),
-                        'phone': ('Numer telefonu'),
+                    'image': ('Zaktualizuj zdjęcie profilowe'),
+                    'adress': ('Adres'),
+                    'phone': ('Numer telefonu'),
                 }

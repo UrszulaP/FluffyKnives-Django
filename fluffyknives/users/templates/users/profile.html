@@ -1,6 +1,6 @@
 {% extends "shop/layout.html" %}
-{% load static %} <!-- loads static files -->
-{% load crispy_forms_tags %} <!-- loads crispy framework configured in settings -->
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block navbarposition %}
 	<nav class="navbar navbar-expand-md navbar-dark Bggrey" id="navbarMain">
@@ -15,7 +15,7 @@
 
 			<div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-xs-12 mt-3">   
 				<div class="media mt-3">
-					<img src="{{ user.profile.image.url }}" class="rounded-circle img-fluid Img125 img-responsive"> <!-- need to change urlpatterns -->
+					<img src="{{ user.profile.image.url }}" class="rounded-circle img-fluid Img125 img-responsive">
 					<div class="media-body ml-4">
 						<h3>{{ user.username }}</h3>
 						<p class="text-secondary">{{ user.email }}</p>
@@ -40,10 +40,10 @@
 					<div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-xs-12 mt-3">
 						<h4 class="text-center mb-5">Zaktualizuj swoje dane</h4>
 
-						<form method="POST" enctype="multipart/form-data"> <!-- enctype - needs to be defined to make files upload possible -->
+						<form method="POST" enctype="multipart/form-data">
 							{% csrf_token %}
 							<fieldset class="form-group">
-								{{ user_form|crispy }} <!-- .as_p loads form in <p> tags; crispy CSS framework does it for us -->
+								{{ user_form|crispy }}
 								{{ profile_form|crispy }}
 							</fieldset>
 

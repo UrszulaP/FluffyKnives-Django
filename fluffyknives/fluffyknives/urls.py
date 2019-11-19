@@ -1,26 +1,7 @@
-"""fluffyknives URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-# django built-in login views
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
-# direct redirection to users views
 from users import views as user_views
-# for serving static files during development (makes media work in templates)
-# for production read: https://docs.djangoproject.com/en/2.2/howto/static-files/#serving-files-uploaded-by-a-user-during-development
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -35,13 +16,8 @@ urlpatterns = [
          auth_views.LogoutView.as_view(template_name='shop/main.html'), 
          name='logout'),
     path('', include('shop.urls')),
-] # all urls '' will be searched in shop.urls
-# better to end path by / here, then django will not add / automately to pahts that already has /
-# template_name='...' - LoginView opens registration/login.html template by default
+]
 
-
-# for serving static files during development (makes media work in templates)
-# for production read: https://docs.djangoproject.com/en/2.2/howto/static-files/#serving-files-uploaded-by-a-user-during-development
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, 
                           document_root=settings.MEDIA_ROOT)

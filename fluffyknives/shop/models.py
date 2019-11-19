@@ -1,9 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User # importuje wbudowaną tabelę User
+from django.contrib.auth.models import User
 
 class Item(models.Model):
-    # id = models.AutoField(primary_key=True) - jest dodawane automatycznie przez Django
-    item_name = models.CharField(max_length=30) # domyślnie blank=False - NOT NULL
+    item_name = models.CharField(max_length=30)
     item_main_description = models.TextField(max_length=100, blank=True)
     item_points_description = models.TextField(max_length=200, blank=True)
     item_image = models.CharField(max_length=30)
