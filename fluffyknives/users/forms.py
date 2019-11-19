@@ -10,13 +10,11 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
         labels = {
-                        'username': ('Nazwa użytkownika'),
-                        'email': ('Emaill'),
-                        'password1': ('Hasło'),
-                        'password2': ('Potwierdź hasło'),
+                    'username': ('Nazwa użytkownika'),
+                    'email': ('Emaill'),
+                    'password1': ('Hasło'),
+                    'password2': ('Potwierdź hasło'),
                 }
-
-
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
@@ -25,11 +23,9 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['username', 'email']
         labels = {
-                'username': ('Nazwa użytkownika'),
-                'email': ('Emaill'),
-        }
-
-
+                    'username': ('Nazwa użytkownika'),
+                    'email': ('Emaill'),
+                }
 
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
